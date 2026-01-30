@@ -57,7 +57,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       technologies: ["Python", "Flask", "Scikit-learn", "Angular", "TypeScript", "Machine Learning"],
       imageUrl: "https://picsum.photos/600/400?random=10",
       link: "#",
-      github: "#"
+      github: "https://github.com/clunkiersalt817/BangalorePropertyPredictor"
     },
     {
       id: "p2",
