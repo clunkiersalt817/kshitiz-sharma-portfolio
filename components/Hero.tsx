@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-20">
 
           {/* Text Content */}
-          <div className="flex-1 text-center md:text-left">
+          <div className="w-full max-w-4xl mx-auto text-center">
             <div className="inline-block px-3 py-1 mb-6 border border-primary/30 rounded-full bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase animate-fade-in-up">
               Available for hire
             </div>
@@ -40,11 +40,11 @@ const Hero: React.FC = () => {
               {title}
             </h2>
 
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed mx-auto md:mx-0 animate-fade-in-up animate-delay-300">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mb-10 leading-relaxed mx-auto animate-fade-in-up animate-delay-300">
               {tagline}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start items-center animate-fade-in-up animate-delay-300">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center animate-fade-in-up animate-delay-300">
               <a
                 href="#projects"
                 className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primaryDark transition-all duration-300 flex items-center gap-2 group shadow-lg shadow-primary/25 hover:shadow-primary/40 active:scale-95"
@@ -66,25 +66,6 @@ const Hero: React.FC = () => {
                     {getIcon(social.platform)}
                   </a>
                 ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Image Section */}
-          <div className="flex-1 flex justify-center md:justify-end relative animate-fade-in-up animate-delay-200">
-            <div className="relative w-72 h-72 md:w-[450px] md:h-[450px]">
-              {/* Abstract Shapes */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary to-purple-400 rounded-[2rem] rotate-6 opacity-20 blur-xl animate-float"></div>
-              <div className="absolute inset-0 border-2 border-slate-200 dark:border-slate-800 rounded-[2rem] -rotate-6 transition-transform hover:rotate-0 duration-500"></div>
-
-              {/* Main Image Container */}
-              <div className="absolute inset-2 overflow-hidden rounded-[1.5rem] shadow-2xl bg-white dark:bg-slate-800">
-                <img
-                  src={profileImage}
-                  alt={name}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10 rounded-[1.5rem]"></div>
               </div>
             </div>
           </div>

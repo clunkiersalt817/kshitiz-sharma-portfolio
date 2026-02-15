@@ -6,15 +6,13 @@ import Contact from '../components/Contact';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-import Writings from '../components/Writings';
+
 
 const Home: React.FC = () => {
     return (
         <>
             <Hero />
-            <About />
             <Experience />
-            <Writings />
 
             {/* Featured Projects Teaser */}
             <section className="py-20 bg-slate-50 dark:bg-darker transition-colors duration-500">

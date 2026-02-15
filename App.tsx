@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
+import Writings from './pages/Writings';
 import ScrollToTop from './components/ScrollToTop';
 
 // Simple ScrollToTop component to ensure pages start at top
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/writings" element={<Writings />} />
           </Routes>
         </main>
       </div>
