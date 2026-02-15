@@ -55,7 +55,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       title: "Portfolio Website",
       description: "My personal portfolio website built with React, Vite, and Tailwind CSS. Features a modern glassmorphism design, dark mode support, and smooth animations.",
       technologies: ["React", "Vite", "TailwindCSS", "TypeScript"],
-      imageUrl: "https://picsum.photos/600/400?random=1",
+      // imageUrl: "https://picsum.photos/600/400?random=1",
       link: "https://github.com/clunkiersalt817/kshitiz-sharma-portfolio",
       github: "https://github.com/clunkiersalt817/kshitiz-sharma-portfolio"
     },
@@ -64,7 +64,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       title: "Bangalore Property Predictor",
       description: "AI-powered real estate platform that predicts property prices in Bangalore using machine learning. Features interactive market trend analysis and future price projections.",
       technologies: ["Python", "Flask", "Scikit-learn", "Angular", "Machine Learning"],
-      imageUrl: "https://picsum.photos/600/400?random=2",
+      // imageUrl: "https://picsum.photos/600/400?random=2",
       link: "https://github.com/clunkiersalt817/BangalorePropertyPredictor",
       github: "https://github.com/clunkiersalt817/BangalorePropertyPredictor"
     },
@@ -73,7 +73,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       title: "AMD GPU Passthrough",
       description: "Configuration and scripts for passing through AMD GPUs to KVM/QEMU virtual machines, enabling near-native performance for gaming or compute workloads on Linux hosts.",
       technologies: ["Linux", "KVM", "QEMU", "Bash", "VFIO"],
-      imageUrl: "https://picsum.photos/600/400?random=3",
+      // imageUrl: "https://picsum.photos/600/400?random=3",
       link: "https://github.com/clunkiersalt817/amdGPU-Passthrough",
       github: "https://github.com/clunkiersalt817/amdGPU-Passthrough"
     },
@@ -82,7 +82,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       title: "HTS Writeups",
       description: "Comprehensive writeups and solutions for HackTheBox and other CTF challenges, documenting security vulnerabilities and exploitation techniques.",
       technologies: ["Security", "CTF", "Documentation", "Ethical Hacking"],
-      imageUrl: "https://picsum.photos/600/400?random=4",
+      // imageUrl: "https://picsum.photos/600/400?random=4",
       link: "https://github.com/clunkiersalt817/HTSwriteups",
       github: "https://github.com/clunkiersalt817/HTSwriteups"
     },
@@ -91,7 +91,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       title: "Quantum Programming",
       description: "Exploration of quantum computing concepts and algorithms using Q# and Python. Includes implementations of basic quantum gates and algorithms.",
       technologies: ["Q#", "Python", "Quantum Computing", "Algorithms"],
-      imageUrl: "https://picsum.photos/600/400?random=5",
+      // imageUrl: "https://picsum.photos/600/400?random=5",
       link: "https://github.com/clunkiersalt817/QuantumProgramming",
       github: "https://github.com/clunkiersalt817/QuantumProgramming"
     }

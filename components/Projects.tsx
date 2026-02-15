@@ -24,29 +24,25 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 flex flex-col h-full animate-fade-in-up"
+              className="glass-card p-6 rounded-2xl group hover:-translate-y-2 flex flex-col h-full animate-fade-in-up border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image Container */}
-              <div className="relative h-56 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/0 transition-colors z-10"></div>
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-xl font-bold font-serif text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
 
-                {/* Overlay Links */}
-                <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 z-20 backdrop-blur-sm">
+                <div className="flex gap-3">
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-all hover:scale-110"
+                      className="text-slate-400 hover:text-primary transition-colors"
                       aria-label="GitHub Repo"
                     >
-                      <Github className="w-6 h-6" />
+                      <Github className="w-5 h-5" />
                     </a>
                   )}
                   {project.link && (
@@ -54,23 +50,17 @@ const Projects: React.FC = () => {
                       href={project.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-all hover:scale-110"
+                      className="text-slate-400 hover:text-primary transition-colors"
                       aria-label="Live Demo"
                     >
-                      {project.link.includes('youtube') || project.link.includes('youtu.be') ? <Youtube className="w-6 h-6" /> : <ExternalLink className="w-6 h-6" />}
+                      {project.link.includes('youtube') || project.link.includes('youtu.be') ? <Youtube className="w-5 h-5" /> : <ExternalLink className="w-5 h-5" />}
                     </a>
                   )}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 flex-1 flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold font-serif text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <Folder className="w-5 h-5 text-primary/50 group-hover:text-primary transition-colors" />
-                </div>
+              <div className="flex-1 flex flex-col">
 
                 <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1">
                   {project.description}

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { useLocation, useNavigate } from 'react-router-dom';
+import GlitchPixel from './GlitchPixel';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,7 +17,13 @@ const Navbar: React.FC = () => {
 
       // Determine active section only on home page
       if (location.pathname === '/') {
-        const sections = ['about', 'experience', 'contact'];
+        // Check if we're at the bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+          setActiveSection('contact');
+          return;
+        }
+
+        const sections = ['contact', 'experience', 'about'];
         for (const section of sections) {
           const element = document.getElementById(section);
           if (element) {
@@ -99,7 +106,20 @@ const Navbar: React.FC = () => {
         ${isScrolled || isMenuOpen ? 'glass rounded-2xl shadow-lg border-white/20 dark:border-white/10' : 'bg-transparent border-transparent'}`}
       >
         <div className="px-4 py-3 md:px-6 flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo / Home Button */}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setActiveSection('');
+            }}
+            className="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5 rounded-full transition-colors"
+            aria-label="Home"
+          >
+            <Home className="w-5 h-5" />
+          </a>
 
 
           {/* Desktop Menu */}
@@ -131,8 +151,11 @@ const Navbar: React.FC = () => {
               );
             })}
 
-            <div className="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700">
+            <div className="ml-2 pl-2 border-l border-slate-200 dark:border-slate-700 flex items-center gap-2">
               <ThemeToggle />
+              <div className="hidden md:block">
+                <GlitchPixel />
+              </div>
             </div>
           </div>
 
