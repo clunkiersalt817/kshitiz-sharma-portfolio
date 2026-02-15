@@ -53,7 +53,17 @@ export interface JobListing {
   id: string;
   title: string;
   company: string;
-  location: string;
   link: string;
   source: string;
+}
+
+export interface DevToArticle {
+  id: number;
+  title: string;
+  description: string;
+  cover_image: string;
+  url: string;
+  readable_publish_date: string;
+  reading_time_minutes: number;
+  tag_list: string[];
 }
