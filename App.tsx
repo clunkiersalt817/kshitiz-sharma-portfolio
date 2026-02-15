@@ -1,24 +1,30 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import ScrollToTop from './components/ScrollToTop';
 
+// Simple ScrollToTop component to ensure pages start at top
+function ScrollToTopWrapper() {
+  return <ScrollToTop />;
+}
 
 function App() {
   return (
-    <div className="bg-white dark:bg-darker text-slate-900 dark:text-slate-300 min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
-    </div>
+    <Router basename={import.meta.env.BASE_URL}>
+      <div className="bg-white dark:bg-darker text-slate-900 dark:text-slate-300 min-h-screen font-sans">
+        <ScrollToTopWrapper />
+        <Navbar />
+        {/* Main Content Area */}
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

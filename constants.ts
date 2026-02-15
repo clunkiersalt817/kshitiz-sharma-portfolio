@@ -52,30 +52,48 @@ export const PORTFOLIO_DATA: PortfolioData = {
   projects: [
     {
       id: "p1",
-      title: "Bangalore Property Price Predictor",
-      description: "AI-powered real estate platform that predicts property prices in Bangalore using machine learning. Features interactive market trend analysis, future price projections with inflation modeling, and responsive modern UI design.",
-      technologies: ["Python", "Flask", "Scikit-learn", "Angular", "TypeScript", "Machine Learning"],
-      imageUrl: "https://picsum.photos/600/400?random=10",
-      link: "#",
-      github: "#"
+      title: "Portfolio Website",
+      description: "My personal portfolio website built with React, Vite, and Tailwind CSS. Features a modern glassmorphism design, dark mode support, and smooth animations.",
+      technologies: ["React", "Vite", "TailwindCSS", "TypeScript"],
+      imageUrl: "https://picsum.photos/600/400?random=1",
+      link: "https://github.com/clunkiersalt817/kshitiz-sharma-portfolio",
+      github: "https://github.com/clunkiersalt817/kshitiz-sharma-portfolio"
     },
     {
       id: "p2",
-      title: "Automated Security Audit Tool",
-      description: "A plug-and-play hardware solution using Raspberry Pi Pico for automated system security auditing. Scans protocols, ports, and permissions upon connection and generates comprehensive vulnerability reports via a Tableau dashboard.",
-      technologies: ["Raspberry Pi", "Python", "Tableau", "Linux", "Automation"],
-      imageUrl: "https://picsum.photos/600/400?random=15", 
-      link: "https://www.youtube.com/watch?v=MiJ18c-_fAE",
-      github: "#"
+      title: "Bangalore Property Predictor",
+      description: "AI-powered real estate platform that predicts property prices in Bangalore using machine learning. Features interactive market trend analysis and future price projections.",
+      technologies: ["Python", "Flask", "Scikit-learn", "Angular", "Machine Learning"],
+      imageUrl: "https://picsum.photos/600/400?random=2",
+      link: "https://github.com/clunkiersalt817/BangalorePropertyPredictor",
+      github: "https://github.com/clunkiersalt817/BangalorePropertyPredictor"
     },
     {
       id: "p3",
       title: "AMD GPU Passthrough",
       description: "Configuration and scripts for passing through AMD GPUs to KVM/QEMU virtual machines, enabling near-native performance for gaming or compute workloads on Linux hosts.",
       technologies: ["Linux", "KVM", "QEMU", "Bash", "VFIO"],
-      imageUrl: "https://picsum.photos/600/400?random=4",
+      imageUrl: "https://picsum.photos/600/400?random=3",
       link: "https://github.com/clunkiersalt817/amdGPU-Passthrough",
       github: "https://github.com/clunkiersalt817/amdGPU-Passthrough"
+    },
+    {
+      id: "p4",
+      title: "HTS Writeups",
+      description: "Comprehensive writeups and solutions for HackTheBox and other CTF challenges, documenting security vulnerabilities and exploitation techniques.",
+      technologies: ["Security", "CTF", "Documentation", "Ethical Hacking"],
+      imageUrl: "https://picsum.photos/600/400?random=4",
+      link: "https://github.com/clunkiersalt817/HTSwriteups",
+      github: "https://github.com/clunkiersalt817/HTSwriteups"
+    },
+    {
+      id: "p5",
+      title: "Quantum Programming",
+      description: "Exploration of quantum computing concepts and algorithms using Q# and Python. Includes implementations of basic quantum gates and algorithms.",
+      technologies: ["Q#", "Python", "Quantum Computing", "Algorithms"],
+      imageUrl: "https://picsum.photos/600/400?random=5",
+      link: "https://github.com/clunkiersalt817/QuantumProgramming",
+      github: "https://github.com/clunkiersalt817/QuantumProgramming"
     }
   ]
 };

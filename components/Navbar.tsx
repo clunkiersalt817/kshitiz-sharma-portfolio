@@ -1,55 +1,91 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Determine active section
-      const sections = ['about', 'experience', 'projects', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            setActiveSection(section);
-            break;
+      // Determine active section only on home page
+      if (location.pathname === '/') {
+        const sections = ['about', 'experience', 'contact'];
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100 && rect.bottom >= 100) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
+      } else {
+        setActiveSection('');
       }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
 
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+    if (href.startsWith('#')) {
+      const targetId = href.replace('#', '');
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      window.history.pushState(null, '', href);
+      if (location.pathname !== '/') {
+        // If not on home page, navigate to home and then scroll
+        // We can pass state or hash, but hash is easiest if we handle it on load.
+        // Simple approach: navigate strictly, and let a useEffect in Home handle hash? 
+        // Or just navigate to / + hash
+        navigate('/' + href);
+        // We need to wait for navigation. 
+        // Actually, straightforward navigate('/#id') works with standard browser behavior
+        // IF we use <a href>. But we are preventing default.
+        // Let's just navigate.
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            const offset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Already on home, just scroll
+        const element = document.getElementById(targetId);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          window.history.pushState(null, '', href);
+        }
+      }
+    } else {
+      // Internal route like /projects
+      navigate(href);
+      window.scrollTo(0, 0);
     }
 
     setIsMenuOpen(false);
@@ -68,7 +104,14 @@ const Navbar: React.FC = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace('#', '');
+              // Active state logic
+              let isActive = false;
+              if (link.href.startsWith('#')) {
+                isActive = activeSection === link.href.replace('#', '') && location.pathname === '/';
+              } else {
+                isActive = location.pathname === link.href;
+              }
+
               return (
                 <a
                   key={link.name}
