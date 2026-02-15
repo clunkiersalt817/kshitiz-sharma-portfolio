@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, ChevronDown, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../constants';
+import ParticleBackground from './ParticleBackground';
 
 const Hero: React.FC = () => {
   const { name, title, tagline, profileImage } = PORTFOLIO_DATA.personalInfo;
@@ -18,6 +19,7 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden bg-slate-50 dark:bg-darker transition-colors duration-500">
+      <ParticleBackground />
 
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 animate-pulse-slow"></div>

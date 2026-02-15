@@ -7,16 +7,17 @@ import Writings from './pages/Writings';
 import Arcade from './pages/Arcade';
 import ScrollToTop from './components/ScrollToTop';
 import Terminal from './components/Terminal';
-// Wrapper component to use hooks inside Router
-const AppContent: React.FC = () => {
 
+const AppContent: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-darker text-slate-900 dark:text-slate-300 min-h-screen font-sans transition-colors duration-500">
-      <ScrollToTop />
-      <Terminal /> {/* Global Terminal Overlay */}
-      <Navbar />
+    <div className="bg-white dark:bg-darker text-slate-900 dark:text-slate-300 min-h-screen font-sans transition-colors duration-500 relative">
+      <div className="relative z-50">
+        <ScrollToTop />
+        <Terminal /> {/* Global Terminal Overlay */}
+        <Navbar />
+      </div>
       {/* Main Content Area */}
-      <main>
+      <main className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
