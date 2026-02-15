@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../constants';
 import ParticleBackground from './ParticleBackground';
@@ -47,13 +48,14 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center animate-fade-in-up animate-delay-300">
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primaryDark transition-all duration-300 flex items-center gap-2 group shadow-lg shadow-primary/25 hover:shadow-primary/40 active:scale-95"
               >
                 View Projects
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
+
 
               <div className="flex items-center gap-4">
                 {socials.map((social) => (
