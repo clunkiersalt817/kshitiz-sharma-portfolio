@@ -12,6 +12,7 @@ const Home: React.FC = () => {
     return (
         <>
             <Hero />
+            <About />
             <Experience />
 
             {/* Featured Projects Teaser */}
